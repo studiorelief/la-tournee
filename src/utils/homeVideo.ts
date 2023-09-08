@@ -1,4 +1,4 @@
-export function lazyVideo(videoId: string, videoSrc: string): void {
+/* export function lazyVideo(videoId: string, videoSrc: string): void {
   document.addEventListener('DOMContentLoaded', () => {
     const video = document.getElementById(videoId) as HTMLVideoElement;
 
@@ -21,8 +21,14 @@ export function lazyVideo(videoId: string, videoSrc: string): void {
     };
 
     window.addEventListener('scroll', scrollHandler);
+    if (isInViewport(video)) {
+      video.setAttribute('src', videoSrc);
+      video.load(); // Recharge la vidéo après avoir modifié la source
+      video.play(); // <--- Ajoutez cette ligne pour mettre la vidéo en lecture
+      window.removeEventListener('scroll', scrollHandler); // Retire l'écouteur d'événement une fois la vidéo chargée
+    }
   });
-}
+} */
 
 // Fonction pour vérifier si l'élément est dans le viewport
 const isInViewport = (element: Element): boolean => {

@@ -58,7 +58,7 @@ window.Webflow.push(() => {
     inputSync('#input-cp-duplicate', '#input-cp', '#submit-cp-duplicate', '#submit-cp');
 
     // Lazy Load video
-    lazyVideo('myVideo', 'https://storage.googleapis.com/studiorelief-asset/la-tournee.mp4');
+    /* lazyVideo('myVideo', 'https://storage.googleapis.com/studiorelief-asset/la-tournee-src.mp4'); */
     pauseVideo();
   }
 });
