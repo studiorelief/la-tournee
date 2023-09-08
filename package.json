@@ -55,6 +55,7 @@
   "dependencies": {
     "@finsweet/ts-utils": "^0.39.2",
     "countup.js": "^2.8.0",
+    "gsap": "^3.12.2",
     "jquery": "^3.7.1",
     "swiper": "^10.2.0"
   },
