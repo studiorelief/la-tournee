@@ -17,7 +17,7 @@ function stepAnim() {
     y: 0,
     stagger: 0.5, // Effet de "stagger"
     scrollTrigger: {
-      markers: true,
+      markers: false,
       trigger: '.section_comment', // Déclencheur de l'animation
       start: 'top 60%', // Début de l'animation lorsque le haut du déclencheur atteint 75% du viewport
       end: 'bottom 85%', // Fin de l'animation lorsque le bas du déclencheur atteint 25% du viewport
