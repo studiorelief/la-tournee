@@ -1,7 +1,9 @@
 import './index.css';
 
 import { initializeCountUpAndStyle } from '$utils/countup';
+import { stepAnim } from '$utils/gsap';
 import { checkPostalCode } from '$utils/hero';
+import { lazyVideo, pauseVideo } from '$utils/homeVideo';
 import { inputSync, swipeElement, tradDate } from '$utils/jquery';
 import { loadScript } from '$utils/loadscript';
 import { blogSwiper, reviewSwiper } from '$utils/swiper';
@@ -45,11 +47,18 @@ window.Webflow.push(() => {
       }
     }
 
+    // Gsap Animation
+    stepAnim();
+
     // Attacher l'écouteur d'événement à l'input
     const inputElement = document.getElementById('input-cp') as HTMLInputElement;
     inputElement.addEventListener('keydown', preventFormSubmitOnEnter);
 
-    // input sync on home
+    // Input Sync on home
     inputSync('#input-cp-duplicate', '#input-cp', '#submit-cp-duplicate', '#submit-cp');
+
+    // Lazy Load video
+    lazyVideo('myVideo', 'https://storage.googleapis.com/studiorelief-asset/la-tournee.mp4');
+    pauseVideo();
   }
 });

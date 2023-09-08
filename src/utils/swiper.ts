@@ -10,7 +10,7 @@ function reviewSwiper() {
     new Swiper($(this).find('.swiper.is-review')[0], {
       modules: [Navigation, Mousewheel, Keyboard],
       direction: 'horizontal',
-      slidesPerView: 'auto',
+      slidesPerView: 1,
       spaceBetween: '4%',
       centeredSlides: true,
       //* bug on loop à régler
