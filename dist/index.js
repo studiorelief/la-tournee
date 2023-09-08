@@ -6518,8 +6518,8 @@
   // src/utils/hero.ts
   init_live_reload();
   async function checkPostalCode() {
-    const inputElement2 = document.getElementById("input-cp");
-    const postalCode = inputElement2.value;
+    const inputElement = document.getElementById("input-cp");
+    const postalCode = inputElement.value;
     if (postalCode === "") {
       return;
     }
@@ -6542,13 +6542,6 @@
       console.error("Erreur lors de la r\xE9cup\xE9ration des donn\xE9es :", error);
     }
   }
-  function preventFormSubmitOnEnter(event2) {
-    if (event2.key === "Enter") {
-      event2.preventDefault();
-    }
-  }
-  var inputElement = document.getElementById("input-cp");
-  inputElement.addEventListener("keydown", preventFormSubmitOnEnter);
 
   // src/utils/jquery.ts
   init_live_reload();
@@ -6579,6 +6572,17 @@
       if (monthNum >= 0 && monthNum <= 11) {
         (0, import_jquery.default)(this).text(frenchMonths[monthNum]);
       }
+    });
+  }
+  function inputSync(inputDuplicateSelector, inputSelector, submitDuplicateSelector, submitSelector) {
+    (0, import_jquery.default)(inputDuplicateSelector).on("input", function() {
+      const value = (0, import_jquery.default)(this).val();
+      if (value !== void 0) {
+        (0, import_jquery.default)(inputSelector).val(value);
+      }
+    });
+    (0, import_jquery.default)(submitDuplicateSelector).on("click", function() {
+      (0, import_jquery.default)(submitSelector).click();
     });
   }
 
@@ -11389,11 +11393,20 @@
     blogSwiper();
     reviewSwiper();
     if (window.location.pathname === "/") {
+      let preventFormSubmitOnEnter2 = function(event2) {
+        if (event2.key === "Enter") {
+          event2.preventDefault();
+        }
+      };
+      var preventFormSubmitOnEnter = preventFormSubmitOnEnter2;
       const submitButton = document.getElementById("submit-cp");
       if (submitButton) {
         submitButton.addEventListener("click", checkPostalCode);
       }
       initializeCountUpAndStyle();
+      const inputElement = document.getElementById("input-cp");
+      inputElement.addEventListener("keydown", preventFormSubmitOnEnter2);
+      inputSync("#input-cp-duplicate", "#input-cp", "#submit-cp-duplicate", "#submit-cp");
     }
   });
 })();

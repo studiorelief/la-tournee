@@ -7,8 +7,8 @@ function swipeElement() {
     relatedEl.appendTo($(this));
   });
 }
-
-/* function cloneCP() {
+/* 
+function cloneCP() {
   // Dupliquer l'élément
   const clonedElement = $('.form-cp_component.is-hero').clone();
 
@@ -46,4 +46,29 @@ function tradDate() {
   });
 }
 
-export { swipeElement, tradDate };
+function inputSync(
+  inputDuplicateSelector: string,
+  inputSelector: string,
+  submitDuplicateSelector: string,
+  submitSelector: string
+) {
+  // Écouter l'événement 'input' sur le champ d'entrée "duplicate"
+  $(inputDuplicateSelector).on('input', function () {
+    // Récupérer la valeur du champ "duplicate"
+    const value = $(this).val();
+
+    // Vérifier si la valeur est définie
+    if (value !== undefined) {
+      // Mettre à jour la valeur du champ original
+      $(inputSelector).val(value);
+    }
+  });
+
+  // Écouter l'événement 'click' sur le bouton "duplicate"
+  $(submitDuplicateSelector).on('click', function () {
+    // Simuler un clic sur le bouton original
+    $(submitSelector).click();
+  });
+}
+
+export { inputSync, swipeElement, tradDate };

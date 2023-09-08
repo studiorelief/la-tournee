@@ -35,15 +35,4 @@ async function checkPostalCode() {
   }
 }
 
-// Empêcher la soumission du formulaire avec la touche "Entrée"
-function preventFormSubmitOnEnter(event: KeyboardEvent) {
-  if (event.key === 'Enter') {
-    event.preventDefault();
-  }
-}
-
-// Attacher l'écouteur d'événement à l'input
-const inputElement = document.getElementById('input-cp') as HTMLInputElement;
-inputElement.addEventListener('keydown', preventFormSubmitOnEnter);
-
 export { checkPostalCode };

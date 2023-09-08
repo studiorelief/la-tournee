@@ -2,7 +2,7 @@ import './index.css';
 
 import { initializeCountUpAndStyle } from '$utils/countup';
 import { checkPostalCode } from '$utils/hero';
-import { swipeElement, tradDate } from '$utils/jquery';
+import { inputSync, swipeElement, tradDate } from '$utils/jquery';
 import { loadScript } from '$utils/loadscript';
 import { blogSwiper, reviewSwiper } from '$utils/swiper';
 
@@ -32,5 +32,19 @@ window.Webflow.push(() => {
 
     // Load countup
     initializeCountUpAndStyle();
+
+    // Empêcher la soumission du formulaire avec la touche "Entrée"
+    function preventFormSubmitOnEnter(event: KeyboardEvent) {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+      }
+    }
+
+    // Attacher l'écouteur d'événement à l'input
+    const inputElement = document.getElementById('input-cp') as HTMLInputElement;
+    inputElement.addEventListener('keydown', preventFormSubmitOnEnter);
+
+    // input sync on home
+    inputSync('#input-cp-duplicate', '#input-cp', '#submit-cp-duplicate', '#submit-cp');
   }
 });
