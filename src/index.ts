@@ -4,8 +4,7 @@ import { initializeCountUpAndStyle } from '$utils/countup';
 import { stepAnim } from '$utils/gsap';
 import { checkPostalCode } from '$utils/hero';
 import { /* lazyVideo, */ pauseVideo } from '$utils/homeVideo';
-import { manageInputZoom } from '$utils/iOSzoom';
-import { inputSync, swipeElement, tradDate } from '$utils/jquery';
+import { closeNav, inputSync, scrollNav, swipeElement, tradDate } from '$utils/jquery';
 import { loadScript } from '$utils/loadscript';
 import { blogSwiper, reviewSwiper } from '$utils/swiper';
 
@@ -22,12 +21,12 @@ window.Webflow.push(() => {
     ),
   ]);
 
-  // Zoom iOS
-  manageInputZoom();
-
   // Swipe span-element form CP
   swipeElement();
   tradDate();
+
+  // jQuery
+  closeNav();
 
   // Swiper review
   blogSwiper();
@@ -35,6 +34,8 @@ window.Webflow.push(() => {
 
   // Load on Home only
   if (window.location.pathname === '/') {
+    // jQuery nav
+    scrollNav();
     // Load script for hero
     const submitButton = document.getElementById('submit-cp');
     if (submitButton) {

@@ -66,8 +66,6 @@ function blogSwiper() {
       centeredSlides: true,
       //* bug on loop à régler
       loop: true,
-      grabCursor: true,
-      slideToClickedSlide: true,
       autoHeight: true,
       speed: 250,
       mousewheel: {

@@ -7,6 +7,12 @@ function swipeElement() {
     relatedEl.appendTo($(this));
   });
 }
+
+function closeNav() {
+  $('.navbar_menu-bg').on('click', function () {
+    $('.navbar_menu').trigger('click');
+  });
+}
 /* 
 function cloneCP() {
   // Dupliquer l'élément
@@ -71,4 +77,53 @@ function inputSync(
   });
 }
 
-export { inputSync, swipeElement, tradDate };
+function updateNavbarBasedOnScroll() {
+  const scroll = $(window).scrollTop() || 0;
+
+  if (scroll < 50) {
+    $('.navbar_logo-circle').css('display', 'block');
+    $('.navbar_logo-scroll').css('display', 'none');
+    $('.navbar_menu-w').css({
+      color: '#fef4ec',
+      transition: 'color 0.25s',
+    });
+    $('.navbar_background').css({
+      transform: 'translateY(-8rem)',
+      transition: 'transform 0.3s',
+    });
+    $('.navbar_brand-w').css({
+      height: '5.5rem',
+      transition: 'height 0.5s',
+    });
+  } else {
+    $('.navbar_logo-circle').css('display', 'none');
+    $('.navbar_logo-scroll').css('display', 'block');
+    $('.navbar_menu-w').css('color', '');
+    $('.navbar_background').css('transform', '');
+    $('.navbar_brand-w').css('height', '');
+  }
+}
+
+function scrollNav() {
+  $(window).scroll(updateNavbarBasedOnScroll);
+}
+
+// Condition pour appliquer les styles initiaux uniquement sur la page d'accueil
+if (window.location.pathname === '/') {
+  $('.navbar_logo-circle').css('display', 'block');
+  $('.navbar_logo-scroll').css('display', 'none');
+  $('.navbar_menu-w').css({
+    color: '#fef4ec',
+    transition: 'color 0.25s',
+  });
+  $('.navbar_background').css({
+    transform: 'translateY(-8rem)',
+    transition: 'transform 0.3s',
+  });
+  $('.navbar_brand-w').css({
+    height: '5.5rem',
+    transition: 'height 0.5s',
+  });
+}
+
+export { closeNav, inputSync, scrollNav, swipeElement, tradDate };
