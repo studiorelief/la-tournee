@@ -3,7 +3,8 @@ import './index.css';
 import { initializeCountUpAndStyle } from '$utils/countup';
 import { stepAnim } from '$utils/gsap';
 import { checkPostalCode } from '$utils/hero';
-import { lazyVideo, pauseVideo } from '$utils/homeVideo';
+import { /* lazyVideo, */ pauseVideo } from '$utils/homeVideo';
+import { manageInputZoom } from '$utils/iOSzoom';
 import { inputSync, swipeElement, tradDate } from '$utils/jquery';
 import { loadScript } from '$utils/loadscript';
 import { blogSwiper, reviewSwiper } from '$utils/swiper';
@@ -20,6 +21,9 @@ window.Webflow.push(() => {
       'https://cdn.jsdelivr.net/npm/@finsweet/attributes-scrolldisable@1/scrolldisable.js'
     ),
   ]);
+
+  // Zoom iOS
+  manageInputZoom();
 
   // Swipe span-element form CP
   swipeElement();
