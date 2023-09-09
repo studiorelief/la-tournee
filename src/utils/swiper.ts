@@ -18,7 +18,7 @@ function reviewSwiper() {
       grabCursor: true,
       slideToClickedSlide: true,
       /* autoHeight: true, */
-      speed: 250,
+      speed: 300,
       mousewheel: {
         forceToAxis: true,
         sensitivity: 1,
@@ -69,7 +69,7 @@ function blogSwiper() {
       grabCursor: true,
       slideToClickedSlide: true,
       autoHeight: true,
-      speed: 250,
+      speed: 300,
       mousewheel: {
         forceToAxis: true,
         sensitivity: 1,
