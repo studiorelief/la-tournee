@@ -66,6 +66,8 @@ function blogSwiper() {
       centeredSlides: true,
       //* bug on loop à régler
       loop: true,
+      grabCursor: true,
+      slideToClickedSlide: true,
       autoHeight: true,
       speed: 250,
       mousewheel: {
@@ -86,7 +88,7 @@ function blogSwiper() {
       breakpoints: {
         // mobile landscape
         480: {
-          slidesPerView: 'auto',
+          slidesPerView: 2,
           spaceBetween: '4%',
         },
         // tablet
