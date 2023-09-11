@@ -10,7 +10,8 @@ function reviewSwiper() {
     new Swiper($(this).find('.swiper.is-review')[0], {
       modules: [Navigation, Mousewheel, Keyboard],
       direction: 'horizontal',
-      slidesPerView: 1,
+      slidesPerView: 'auto',
+      slidesPerGroup: 1,
       spaceBetween: '4%',
       centeredSlides: true,
       //* bug on loop à régler
@@ -42,13 +43,14 @@ function reviewSwiper() {
         },
         // tablet
         768: {
-          slidesPerView: 'auto',
+          slidesPerView: 2,
           spaceBetween: '4%',
+          centeredSlides: false,
         },
         // desktop
         992: {
           slidesPerView: 3,
-          spaceBetween: '4%',
+          spaceBetween: 32,
         },
       },
     });
@@ -62,6 +64,7 @@ function blogSwiper() {
       modules: [Navigation, Mousewheel, Keyboard],
       direction: 'horizontal',
       slidesPerView: 'auto',
+      slidesPerGroup: 1,
       spaceBetween: '4%',
       centeredSlides: true,
       //* bug on loop à régler
@@ -88,13 +91,14 @@ function blogSwiper() {
       breakpoints: {
         // mobile landscape
         480: {
-          slidesPerView: 2,
+          slidesPerView: 'auto',
           spaceBetween: '4%',
         },
         // tablet
         768: {
-          slidesPerView: 'auto',
+          slidesPerView: 2,
           spaceBetween: '4%',
+          centeredSlides: false,
         },
         // desktop
         992: {
