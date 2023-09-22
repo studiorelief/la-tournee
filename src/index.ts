@@ -4,7 +4,13 @@ import { initializeCountUpAndStyle } from '$utils/countup';
 import { stepAnim } from '$utils/gsap';
 import { checkPostalCode } from '$utils/hero';
 import { /* lazyVideo, */ pauseVideo } from '$utils/homeVideo';
-import { closeNav, inputSync, scrollNav, swipeElement /* , tradDate */ } from '$utils/jquery';
+import {
+  closeNav,
+  copyBlog,
+  /* , tradDate */ inputSync,
+  scrollNav,
+  swipeElement,
+} from '$utils/jquery';
 import { loadScript } from '$utils/loadscript';
 import { blogSwiper, reviewSwiper } from '$utils/swiper';
 
@@ -31,6 +37,7 @@ window.Webflow.push(() => {
   // Swiper review
   blogSwiper();
   reviewSwiper();
+  copyBlog();
 
   // Load on Home only
   if (window.location.pathname === '/') {

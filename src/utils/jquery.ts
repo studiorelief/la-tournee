@@ -52,6 +52,7 @@ function tradDate() {
   });
 }
 
+// Input sync for home CP
 function inputSync(
   inputDuplicateSelector: string,
   inputSelector: string,
@@ -67,6 +68,16 @@ function inputSync(
     if (value !== undefined) {
       // Mettre à jour la valeur du champ original
       $(inputSelector).val(value);
+      // Dupliquer la valeur dans l'input #cp-popup
+      $('#cp-popup').val(value);
+    }
+  });
+
+  // Écouter l'événement 'input' sur le champ d'entrée original pour mettre à jour #cp-popup
+  $(inputSelector).on('input', function () {
+    const value = $(this).val();
+    if (value !== undefined) {
+      $('#cp-popup').val(value);
     }
   });
 
@@ -126,4 +137,33 @@ if (window.location.pathname === '/') {
   });
 }
 
-export { closeNav, inputSync, scrollNav, swipeElement, tradDate };
+// Copy clipboard URL
+function copyBlog() {
+  // Sélectionnez le bouton avec la classe "social_link-url"
+  const button = document.querySelector('.social_link-url');
+
+  // Vérifiez si le bouton existe
+  if (button) {
+    // Ajoutez un écouteur d'événements pour le clic
+    button.addEventListener('click', function () {
+      // Créez un élément textarea temporaire
+      const textarea = document.createElement('textarea');
+      // Définissez le contenu de l'élément textarea sur l'URL courante
+      textarea.value = window.location.href;
+      // Ajoutez l'élément textarea au document
+      document.body.appendChild(textarea);
+      // Sélectionnez le contenu de l'élément textarea
+      textarea.select();
+      // Copiez le contenu sélectionné dans le presse-papiers
+      document.execCommand('copy');
+      // Supprimez l'élément textarea du document
+      document.body.removeChild(textarea);
+
+      // Optionnel : affichez un message indiquant que l'URL a été copiée
+      alert('URL copiée dans le presse-papiers !');
+    });
+  } else {
+  }
+}
+
+export { closeNav, copyBlog, inputSync, scrollNav, swipeElement, tradDate };

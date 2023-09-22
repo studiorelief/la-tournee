@@ -50,7 +50,7 @@ function reviewSwiper() {
         // desktop
         992: {
           slidesPerView: 3,
-          spaceBetween: 32,
+          spaceBetween: '4%',
         },
       },
     });
