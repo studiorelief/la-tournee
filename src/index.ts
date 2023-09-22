@@ -25,6 +25,7 @@ window.Webflow.push(() => {
     loadScript(
       'https://cdn.jsdelivr.net/npm/@finsweet/attributes-scrolldisable@1/scrolldisable.js'
     ),
+    loadScript('https://cdn.jsdelivr.net/npm/@finsweet/attributes-queryparam@1/queryparam.js'),
   ]);
 
   // Swipe span-element form CP
