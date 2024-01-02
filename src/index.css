@@ -1,0 +1,8 @@
+*[tabindex]:focus-visible, input[type="file"]:focus-visible {
+    outline: 0.25rem solid var(--secondary) !important;
+    outline-offset: 0rem !important;
+}
+
+.navbar_brand-w {
+    width: 12rem !important;
+}

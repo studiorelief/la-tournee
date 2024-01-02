@@ -13,7 +13,7 @@ function reviewSwiper() {
       slidesPerView: 'auto',
       slidesPerGroup: 1,
       spaceBetween: '4%',
-      centeredSlides: true,
+      centeredSlides: false,
       //* bug on loop à régler
       loop: true,
       grabCursor: true,
@@ -66,7 +66,7 @@ function blogSwiper() {
       slidesPerView: 'auto',
       slidesPerGroup: 1,
       spaceBetween: '4%',
-      centeredSlides: true,
+      centeredSlides: false,
       //* bug on loop à régler
       loop: true,
       grabCursor: true,

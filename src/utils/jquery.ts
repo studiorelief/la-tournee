@@ -103,7 +103,7 @@ function updateNavbarBasedOnScroll() {
       transition: 'transform 0.3s',
     });
     $('.navbar_brand-w').css({
-      height: '5.5rem',
+      height: '3.25rem',
       transition: 'height 0.5s',
     });
   } else {
@@ -132,7 +132,7 @@ if (window.location.pathname === '/') {
     transition: 'transform 0.3s',
   });
   $('.navbar_brand-w').css({
-    height: '5.5rem',
+    height: '3.25rem',
     transition: 'height 0.5s',
   });
 }

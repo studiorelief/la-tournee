@@ -3,7 +3,7 @@ import './index.css';
 import { initializeCountUpAndStyle } from '$utils/countup';
 import { stepAnim } from '$utils/gsap';
 import { checkPostalCode } from '$utils/hero';
-import { /* lazyVideo, */ pauseVideo } from '$utils/homeVideo';
+/* import { lazyVideo, pauseVideo } from '$utils/homeVideo'; */
 import {
   closeNav,
   copyBlog,
@@ -12,6 +12,11 @@ import {
   swipeElement,
 } from '$utils/jquery';
 import { loadScript } from '$utils/loadscript';
+import {
+  observeColorChanges,
+  observeRangeSliderChanges,
+  rangeCalculator,
+} from '$utils/rangeSlider';
 import { blogSwiper, reviewSwiper } from '$utils/swiper';
 
 window.Webflow ||= [];
@@ -26,6 +31,7 @@ window.Webflow.push(() => {
       'https://cdn.jsdelivr.net/npm/@finsweet/attributes-scrolldisable@1/scrolldisable.js'
     ),
     loadScript('https://cdn.jsdelivr.net/npm/@finsweet/attributes-queryparam@1/queryparam.js'),
+    loadScript('https://cdn.jsdelivr.net/npm/@finsweet/attributes-rangeslider@1/rangeslider.js'),
   ]);
 
   // Swipe span-element form CP
@@ -39,6 +45,12 @@ window.Webflow.push(() => {
   blogSwiper();
   reviewSwiper();
   copyBlog();
+
+  // RangeCalculator
+  rangeCalculator();
+  // Initialiser l'observeur
+  observeColorChanges();
+  observeRangeSliderChanges();
 
   // Load on Home only
   if (window.location.pathname === '/') {
@@ -72,6 +84,6 @@ window.Webflow.push(() => {
 
     // Lazy Load video
     /* lazyVideo('myVideo', 'https://storage.googleapis.com/studiorelief-asset/la-tournee-src.mp4'); */
-    pauseVideo();
+    /* pauseVideo(); */
   }
 });
