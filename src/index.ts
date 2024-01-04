@@ -1,7 +1,7 @@
 import './index.css';
 
 import { initializeCountUpAndStyle } from '$utils/countup';
-import { stepAnim } from '$utils/gsap';
+import { formAnim /* , stepAnim */ } from '$utils/gsap';
 import { checkPostalCode } from '$utils/hero';
 /* import { lazyVideo, pauseVideo } from '$utils/homeVideo'; */
 import {
@@ -73,7 +73,8 @@ window.Webflow.push(() => {
     }
 
     // Gsap Animation
-    stepAnim();
+    /* stepAnim(); */
+    formAnim();
 
     // Attacher l'écouteur d'événement à l'input
     const inputElement = document.getElementById('input-cp') as HTMLInputElement;

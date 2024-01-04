@@ -2,13 +2,13 @@ import 'swiper/css';
 
 import $ from 'jquery';
 import Swiper from 'swiper';
-import { Keyboard, Mousewheel, Navigation } from 'swiper/modules';
+import { Autoplay, Keyboard, Mousewheel, Navigation } from 'swiper/modules';
 
 function reviewSwiper() {
   // swiper show - programmation
   $('.review_swiper-wrapper').each(function () {
     new Swiper($(this).find('.swiper.is-review')[0], {
-      modules: [Navigation, Mousewheel, Keyboard],
+      modules: [Navigation, Mousewheel, Keyboard, Autoplay],
       direction: 'horizontal',
       slidesPerView: 'auto',
       slidesPerGroup: 1,
@@ -19,7 +19,7 @@ function reviewSwiper() {
       grabCursor: true,
       slideToClickedSlide: true,
       /* autoHeight: true, */
-      speed: 300,
+      speed: 1500,
       mousewheel: {
         forceToAxis: true,
         sensitivity: 1,
@@ -28,6 +28,12 @@ function reviewSwiper() {
       keyboard: {
         enabled: true,
         onlyInViewport: true,
+      },
+      autoplay: {
+        delay: 3000,
+        pauseOnMouseEnter: false,
+        disableOnInteraction: false,
+        reverseDirection: false,
       },
       navigation: {
         // Navigation arrows
