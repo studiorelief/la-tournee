@@ -42,8 +42,14 @@ window.Webflow.push(() => {
   closeNav();
 
   // Swiper review
-  blogSwiper();
-  reviewSwiper();
+  const isEmptySwiperReview = $('.swiper.is-review .w-dyn-empty').length > 0;
+  if (!isEmptySwiperReview) {
+    reviewSwiper();
+  }
+  const isEmptySwiperBlog = $('.swiper.is-blog .w-dyn-empty').length > 0;
+  if (!isEmptySwiperBlog) {
+    blogSwiper();
+  }
   copyBlog();
 
   // RangeCalculator
