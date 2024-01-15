@@ -12,6 +12,7 @@ import {
   swipeElement,
 } from '$utils/jquery';
 import { loadScript } from '$utils/loadscript';
+import { adjustVisibility } from '$utils/popup';
 import {
   observeColorChanges,
   observeRangeSliderChanges,
@@ -81,6 +82,9 @@ window.Webflow.push(() => {
     // Gsap Animation
     /* stepAnim(); */
     formAnim();
+
+    // Check visibility popup
+    adjustVisibility();
 
     // Attacher l'écouteur d'événement à l'input
     const inputElement = document.getElementById('input-cp') as HTMLInputElement;
