@@ -9,18 +9,24 @@ async function checkPostalCode() {
   }
 
   try {
-    // Récupérer les données de la nouvelle API
-    const response = await fetch('https://la-tournee.co/api/1.1/obj/big-zone');
-    const data = await response.json();
+    // Préparer l'URL avec le code postal
+    const url = `https://apis.la-tournee.co/v1_0/shop/my_warehouse?postal_code=${postalCode}`;
 
-    // Extraire tous les codes postaux dans un seul tableau
-    const allZipCodes: number[] = [];
-    for (const result of data.response.results) {
-      allZipCodes.push(...result['Zip-codes']);
+    // Préparer l'en-tête avec le token d'accès
+    const headers = {
+      Authorization: 'Bearer 8c06164fb6b7426190645b28a4e73be1',
+    };
+
+    // Faire la requête à l'API
+    const response = await fetch(url, { headers });
+
+    // Vérifier le statut de la réponse
+    let found = false;
+    if (response.status === 200) {
+      found = true;
+    } else if (response.status === 404) {
+      found = false;
     }
-
-    // Rechercher le code postal dans les données
-    const found = allZipCodes.includes(Number(postalCode));
 
     // Afficher les messages appropriés
     if (found) {
