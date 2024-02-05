@@ -14,7 +14,7 @@ async function checkPostalCode() {
 
     // Préparer l'en-tête avec le token d'accès
     const headers = {
-      Authorization: 'Bearer 8c06164fb6b7426190645b28a4e73be1',
+      Authorization: '8c06164fb6b7426190645b28a4e73be1',
     };
 
     // Faire la requête à l'API
